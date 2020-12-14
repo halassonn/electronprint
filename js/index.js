@@ -1,0 +1,166 @@
+const { ipcRenderer } = require('electron')
+const btnprint = document.getElementById("btnprint");
+const btnsilentprint=document.getElementById("btnsilentprint");
+const setoranTab=document.getElementById("setoranTab");
+const data = {
+    columns :[
+        {title: "ID", dataKey: "id"},
+        {title: "Name", dataKey: "name"}, 
+        {title: "Country", dataKey: "country"}, 
+        
+    ],
+    rows:[
+        {"id": 1, "name": "Shaw", "country": "Tanzania"},
+        {"id": 2, "name": "Nelson", "country": "Kazakhstan"},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 4, "name": "Garcia", "country": "Madagascar",},
+        {"id": 4, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 4, "name": "Garcia", "country": "Madagascar",},
+        {"id": 4, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 4, "name": "Garcia", "country": "Madagascar",},
+        {"id": 4, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 4, "name": "Garcia", "country": "Madagascar",},
+        {"id": 4, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 4, "name": "Garcia", "country": "Madagascar",},
+        {"id": 4, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 3, "name": "Garcia", "country": "Madagascar",},
+        {"id": 4, "name": "Garcia", "country": "Madagascar",},
+        {"id": 4, "name": "Garcia", "country": "Madagascar",},
+        
+
+    ]
+}
+const dataSilent={
+    "nik":12312312,
+    "nama":"Halasson",
+    "alamat":"Jalan Dame Sidikalang"
+}
+
+const slip={
+    "tgl":"12-12-2020",
+    "norek":12312312,
+    "nama":"Halasson",
+    "nominal":"100.000",
+    "terbilang":"Seratus Ribu rupiah",
+    "ket":"setoran tab an. halasson gultom",
+    "penyetor":"halasson"
+}
+
+btnprint.addEventListener("click",()=>{
+    ipcRenderer.send("openPrintWind",data)
+})
+btnsilentprint.addEventListener("click",()=>{
+    ipcRenderer.send("silentPrint",slip)
+})
+setoranTab.addEventListener("click",()=>{
+    ipcRenderer.send("openSetorantab","null")
+})
+ipcRenderer.on('openstart', (event, arg) => {
+    console.log(arg) // prints "pong"
+  })
